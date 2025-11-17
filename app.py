@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)  #Flask(__name__) means where to relocate all things 
 
 # ***********************  FLASK APP ROUTING  *************************************
@@ -31,6 +31,23 @@ def fail(score):
 # def demo(): #this cause error because ap n score varaibale pas nhi kia yhan pr, <> k andr jo bhi likhna h 
 # vo hr hal m function k andr pas krvana hi krvana h    
 #     return ('this is demo')
+
+# *************************  Rendering Templates  **************************************
+# in flask, we can render templates usinf render_template library, yani ap kisi or folder s templates ko
+# is page k andr la skty ho, e.g: we are creating a form, and form kisi or file i.e form.html m pra h, 
+# to hm render template k zrye y form ek specific webpage pr dikha skty hn, but for using render_template, it 
+# necessary to put all templates (jin ko rendor krna h) in templates folder. is liye hm n form.html ko templates
+# m rkha h 
+@app.route('/demo_rendering', methods = ['GET'])
+def form_demo():
+    return render_template('demo.html')
+
+# ***********************  NOW WE ARE RENDERING FORM AND SHOWING IT TO THE CLIENT SO THAT
+# HE CAN ENTER DATA ***********************************************************
+@app.route('/form')
+def form():
+    return render_template('form.html')
+
 
 
 
