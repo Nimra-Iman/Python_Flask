@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 app = Flask(__name__)  #Flask(__name__) means where to relocate all things 
 
 # ***********************  FLASK APP ROUTING  *************************************
@@ -58,4 +58,28 @@ if __name__ == '__main__':
     # q k m localhost use kr rhi hun or port bydefault 5000 hoti h
 
 
+
+
+
+
+# ***********************  USAGE OF URL_FOR  *********************************
+# URL_FOR IS A FLASK FUNCTION THAT IS USED TO CREATE AUTOMATIC URLS, yani hmary pas ek 
+# web page h 'research', us webpage pr bhhhtttt sary URLs lgy hn, agr hm n research
+# page ka URL chnage kia to hmy us page k saary URLs ko manually chnage krn pry ga, kuch esa
+# hona chahye k hm just research page ka URL chnage kry and andr valy saary pages k 
+# URLs automatically chnage ho jayn , to y possible h URL_FOR k zrye,
+
+# means, if we chnage the url of research from 'home/research' to 'home/dashboard/research', 
+# the about button in research page that will move us to about page, about URL will not 
+# chnage automatically. it is still 'home/research/about' unless we manually chnage the 
+# address inside @app.route() decorator. if we do not chnage URL for about chnage from 
+# 'home/research/about' to 'home/dashboard/research/about' inside decoratr, the about button will not work,
+# it will not move us to the about page. Now, URL_FOR advantage is that we do not have to
+# manually chnage the about page URL inside Home page href = '', because URL_FOR 
+# automatically update when we update the URl inside @app.route decorator, we will just 
+# write: <a href="{{ url_for('about') }}" click to go to about>, instead 
+# of <a href="home/dashboad/research/about" click to go to about >, we will just chnage the 
+# about URL inside about decorator and we will just use <a href="{{ url_for('about') }} each time, and y
+# new vala URL le le ga
+ 
 
